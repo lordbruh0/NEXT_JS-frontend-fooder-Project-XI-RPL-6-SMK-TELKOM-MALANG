@@ -3,7 +3,7 @@
 import { ReactNode, useState } from "react";
 import Image from "next/image";
 import MenuItem from "./manultem";
-import LogoPic from "../../public/image/logo.png";
+import LogoPic from "../../public/image/Telkom Society 1.png";
 import ProfilePic from "../../public/image/profile.jpg";
 import path from "path";
 
@@ -28,9 +28,9 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
     setIsDropdonwOpen(!isDropdownOpen);
   };
   return (
-    <div className="w-full min-h-dvh bg-slate-50">
+    <div className="w-full min-h-dvh bg-white ">
       {/* header  */}
-      <header className="flex justify-between items-center p-4 mb-0 bg-primary shadow-md">
+      <header className="flex justify-between items-center p-4   mb-0 bg-primary">
         <div className="flex gap-2">
           <button onClick={() => setIsShow(true)}>
             <svg
@@ -39,7 +39,7 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6 text-white"
+              className="w-6 h-6 text-[#F45846]"
             >
               <path
                 strokeLinecap="round"
@@ -48,13 +48,19 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
               />
             </svg>
           </button>
-          <h1 className="font-bold text-xl text-white">{title}</h1>
+          <h1 className="font-bold text-3xl text-black">{title}</h1>
         </div>
 
-        <div className="relative">
+        <div className="relative flex items-center justify-center">
+          <input
+            type="text"
+            placeholder="Search"
+            className="px-4 py-1  rounded-md focus:outline-none focus:ring-2 focus:ring-[#F45846] pr-14 text-black placeholder:text-black bg-[#F6F6F6] "
+          />
+
           <button
             onClick={toggleDropdown}
-            className="flex items-center space-x-2 text-white"
+            className="flex items-center space-x-2 text-black pl-10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,19 +83,19 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 top-full">
               <a
                 href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="block px-4 py-2 text-sm text-[#F45846] hover:bg-red-100"
               >
                 Profile
               </a>
               <a
                 href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="block px-4 py-2 text-sm text-[#F45846]  hover:bg-gray-100"
               >
                 Settings
               </a>
               <a
                 href="#"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="block px-4 py-2 text-sm text-[#F45846] hover:bg-gray-100"
               >
                 Logout
               </a>
@@ -111,7 +117,7 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
-              stroke="currentColor"
+              stroke="  "
               className="w-8 h-8"
             >
               <path
@@ -127,8 +133,10 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
         {/* logo section */}
         <div className="mb-3 w-full flex justify-center">
           <div className="flex items-center space-x-2">
-            <Image src={LogoPic} alt="Logo" width={40} height={40} />
-            <h1 className="text-2xl font-bold text-orange-500">Fooder</h1>
+            <Image src={LogoPic} alt="Logo" width={200} height={200} />
+            {/* <h1 className="text-2xl font-bold text-[#F45846]">
+              Telkom Society
+            </h1> */}
           </div>
         </div>
         {/* end menu section */}
