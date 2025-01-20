@@ -1,3 +1,12 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:40546983.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:769441986.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1841958020.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1977839723.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:837800531.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2013104231.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:903752423.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1927805537.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3040110564.
 "use client";
 
 import { ReactNode, useState } from "react";
@@ -52,11 +61,31 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
         </div>
 
         <div className="relative flex items-center justify-center">
-          <input
-            type="text"
-            placeholder="Search"
-            className="px-4 py-1  rounded-md focus:outline-none focus:ring-2 focus:ring-[#F45846] pr-14 text-black placeholder:text-black bg-[#F6F6F6] "
-          />
+        <div className="relative w-full">
+  <input
+    type="text"
+    placeholder="Search"
+    className="w-72 px-6 py-1  rounded-md focus:outline-none focus:ring-2 focus:ring-[#F45846] text-black placeholder:text-black placeholder:text-start bg-[#F6F6F6] "
+  />
+  <div className="absolute inset-y-0 right-0 flex items-center px-5 bg-[#F45846] justify-center rounded-r-md">
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  strokeWidth={1.5}
+  stroke="currentColor"
+  className="w-5 h-5 text-white"
+>
+  <path
+    strokeLinecap="round"
+    strokeLinejoin="round"  
+    d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.607-10.607 7.5 7.5 0 0 0 10.607 10.607z"
+  />
+</svg>
+
+  </div>
+</div>
+
 
           <button
             onClick={toggleDropdown}
@@ -115,10 +144,10 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 24 24"
+              viewBox="0 0 22  22"
               strokeWidth={1.5}
-              stroke="  "
-              className="w-8 h-8"
+              stroke="currentColor"
+              className="w-8 h-8 text-slate-500"
             >
               <path
                 strokeLinecap="round"

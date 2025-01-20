@@ -9,7 +9,7 @@ interface MenuItemProps {
 }
 
 const MenuItem = ({ icon, label, path, active }: MenuItemProps) => {
-  return (
+  return ( 
     <Link
       href={path}
       className={`flex items-center p-2 my-2 ${
