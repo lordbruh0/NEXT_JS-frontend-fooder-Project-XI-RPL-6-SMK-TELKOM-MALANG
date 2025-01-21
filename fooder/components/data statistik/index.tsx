@@ -1,23 +1,21 @@
 import React from "react";
-import { arrayAdmin } from "../data/admin";
+import { arrayStatistik } from "../../components/data/statistik";
 
-interface StatistikCardProps {
-    title: string;
-    data: number;
-    footer: string;
-    footer2: string;
-}
-
-const StatistikCard: React.FC<StatistikCardProps> = ({ title, data, footer, footer2 }) => {
+export default function StatistikList() {
     return (
-        
-        <div className="bg-gray-200 p-4 w-60 rounded-xl">
-        <h1 className="text-base text-black pb-5">{title}</h1>
-        <h1 className="text-6xl font-semibold text-[#F45846] pb-2">{data}</h1>
-        <p className="text-xs">{footer}</p>
-        <p className="text-xs">{footer2}</p>
-      </div>
-    )
+        <div className="flex flex-wrap gap-4 justify-between">
+            {arrayStatistik.map((statistik) => (
+                <div
+                    key={statistik.id}
+                    className="bg-gray-200 p-4 w-60 rounded-xl shadow-md"
+                >
+                    <h1 className="text-base text-black pb-5">{statistik.title}</h1>
+                    <h1 className="text-6xl font-semibold text-[#F45846] pb-2">
+                        {statistik.data}
+                    </h1>
+                    <p className="text-xs max-w-full w-36">{statistik.footer}</p>
+                </div>
+            ))}
+        </div>
+    );
 }
-
-export default StatistikCard;
