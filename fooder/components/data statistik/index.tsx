@@ -3,7 +3,7 @@ import { arrayStatistik } from "../../components/data/statistik";
 
 export default function StatistikList() {
     return (
-        <div className="flex flex-wrap gap-4 justify-between">
+        <div className="flex justify-between gap-4">
             {arrayStatistik.map((statistik) => (
                 <div
                     key={statistik.id}

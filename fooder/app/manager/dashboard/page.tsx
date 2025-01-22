@@ -1,6 +1,3 @@
-import AdminCard from '../../../components/data admin';
-import Link from 'next/link';
-import { arrayAdmin } from '../../../components/data/admin'
 import AdminList from '../../../components/data admin';
 import StatistikList from '../../../components/data statistik'
 
@@ -10,26 +7,18 @@ const DashboardPage = () => {
       <div className="px-5 bg-[#F6F6F6] w-auto rounded-xl mb-10">
         <h1 className="text-2xl text-[#F45846] font-semibold p-2">Statistik Data</h1>
         <hr className="border-1 border-[#A8A8A8] w-full" />
-        <div className="flex  justify-between py-6">
-
-        <StatistikList />
-
+        <div className="py-6">
+          <StatistikList />
         </div>
       </div>
-
 
       <div className="px-5 bg-[#F6F6F6] w-auto rounded-xl">
         <h1 className="text-2xl text-[#F45846] font-semibold p-2">Admin Data</h1>
         <hr className="border-1 border-[#A8A8A8] w-full" />
         <div className="justify-center items-center py-6">
-
-        <AdminList />
-
+          <AdminList />
         </div>
       </div>
-
-
-
     </div>
   );
 };

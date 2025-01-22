@@ -11,28 +11,35 @@ export const arrayStatistik: StatistikItem[] = [
     {
         id: 1,
         title: "Number of Student",
-        data: 1200,
+        data: 1500,
         footer: "Malang Telkom Vocational School Students"
     },
 
     {
         id: 2,
         title: "Number of Team",
-        data: 1200,
+        data: 100,
         footer: "Malang Telkom Vocational School Students"
     },
 
     {
-        id: 1,
+        id: 3,
         title: "Number of Mentor",
-        data: 1200,
+        data: 60,
         footer: "Malang Telkom Vocational School Students"
     },
 
     {
-        id: 1,
+        id: 4,
         title: "Number of User",
-        data: 1200,
+        data: 1000,
         footer: "Malang Telkom Vocational School Students"
+    },
+
+    {
+        id: 5,
+        title: "Number of PIC",
+        data: 5,
+        footer: "Industry PIC"
     },
 ]
