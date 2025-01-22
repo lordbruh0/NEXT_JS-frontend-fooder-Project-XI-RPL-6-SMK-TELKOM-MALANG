@@ -8,7 +8,7 @@ const UserPage = () => {
         <hr className="border=1 border-[#A8A8A8] w-full" />
         <StudentList />
       </div>
-      
+
     </div>
   );
 };

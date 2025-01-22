@@ -13,7 +13,7 @@ const MenuItem = ({ icon, label, path, active }: MenuItemProps) => {
     <Link
       href={path}
       className={`flex items-center p-2 my-2 ${
-        active ? "text-[#F45846] font-semibold" : "text-[#000000]"
+        active ? "text-[#F45846] font-semibold" : "text-gray-500"
       }`}
     >
       <span className="mr-3">{icon}</span>

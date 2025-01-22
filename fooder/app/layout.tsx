@@ -28,6 +28,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer className="bg-[#F45846] text-white py-4">
+      <div className="container mx-auto text-center">
+        <h1 className="text-sm font-semibold">@2025 - SMK TELKOM MALANG</h1>
+      </div>
+    </footer>
       </body>
     </html>
   );
