@@ -39,7 +39,7 @@ const FinancialCard = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg p-6">
+    <div className="rounded-lg p-6">
       {/* Financial Overview */}
       <div className="flex justify-between items-center">
         <div>

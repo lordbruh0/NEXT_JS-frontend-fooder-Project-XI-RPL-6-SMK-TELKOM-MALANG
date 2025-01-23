@@ -3,6 +3,8 @@ import { useState } from "react";
 import { ChartLineIcon, LayoutGrid, LayoutGridIcon, LockKeyholeIcon, SchoolIcon } from "lucide-react";
 import InfoCard from "@/components/ data transaksi/cardAndIcon";
 import FinancialCard from "@/components/ data transaksi/FinaCialCard";
+import SchoolList from "@/components/ data transaksi/topUser";
+import CandlestickChart from "@/components/ data transaksi/CandleStickChart";
 // import GridIcon from "../../../components/ data transaksi/icon";
 
 const TransaksiPage = () => {
@@ -61,65 +63,32 @@ const TransaksiPage = () => {
             </div>
           </div>
 
-          <div className="flex gap-5 pb-5">
+          <div>     
+          <div className="flex gap-5 pb-5 w-full">
             <div className="w-full">
               <FinancialCard />
             </div>
-            <div className="bg-red-50 w-full">
-              asdasd
+            <div className="w-full items-center justify-center flex pt-10">
+            <CandlestickChart />
             </div>
+          </div>
           </div>
 
           <div className="">
             <div className="flex justify-between items-center">
               <h1 className="text-lg font-black text-gray-700">Top User</h1>
-              <button className="rounded-full p-2 border-2 border-gray-500 ">Full Result</button>
+              <button className="rounded-full  border-2 p-2 border-gray-500 text-xs">Full Result</button>
             </div>
-            <div>
-              <div className="flex text-gray-400 font-medium pt-6">
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-400 font-medium text-center w-full">Place</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-400 font-medium text-center w-full">Users</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-400 font-medium text-center w-full">Unit Price</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-400 font-medium text-center w-full">Revenue</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-400 font-medium text-center w-full">Rating</h1>
-                </div>
-              </div>
-              <div>
-              <div className="flex text-gray-700 font-medium pt-3">
-                <div className="w-full flex items-center justify-center">
-                  <SchoolIcon />
-                  <h1 className="text-gray-700 font-medium w-full">Place</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-700 font-medium text-center w-full">Users</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-700 font-medium text-center w-full">Unit Price</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-700 font-medium text-center w-full">Revenue</h1>
-                </div>
-                <div className="w-full flex items-center justify-center">
-                  <h1 className="text-gray-700 font-medium text-center w-full">Rating</h1>
-                </div>
-              </div>
-              </div>
+            <div className="pt-2">
+              <SchoolList />
             </div>
           </div>
 
 
         </div>
 
-        <div className="h-screen w-2/5 bg-blue-100">
+        <div className=" w-2/5 bg-blue-100 h-screen p-5 rounded-xl">
+          asacsa
         </div>
       </div>
     </div>
