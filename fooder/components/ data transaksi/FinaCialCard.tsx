@@ -21,7 +21,7 @@ const FinancialCard = () => {
     datasets: [
       {
         label: 'Income',
-        data: [0, 1000, 25000, 23000, 21000, 19000, 23000],
+        data: [1000, 2200, 3000, 2500, 4200, 5000, 4500],
         borderColor: '#48BB78',
         backgroundColor: 'rgba(72, 187, 120, 0.2)',
         fill: true,
@@ -29,7 +29,7 @@ const FinancialCard = () => {
       },
       {
         label: 'Expense',
-        data: [0, 18000, 22000, 20000, 19000, 16000, 21000],
+        data: [0, 1200, 2000, 1500, 3200, 5000, 5500],
         borderColor: '#F45846',
         backgroundColor: 'rgba(244, 88, 70, 0.2)',
         fill: true,
@@ -39,7 +39,7 @@ const FinancialCard = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6">
+    <div className="bg-white rounded-lg p-6">
       {/* Financial Overview */}
       <div className="flex justify-between items-center">
         <div>
@@ -47,8 +47,8 @@ const FinancialCard = () => {
           <p className="text-sm text-gray-400">Financial Overview</p>
         </div>
         <div>
-          <p className="text-xs text-green-600">+ $88,040 Income</p>
-          <p className="text-xs text-red-600">- $34,112 Expense</p>
+          <p className="text-xs text-green-600">+ $40,000 Income</p>
+          <p className="text-xs text-[#F45846]">- $2,000 Expense</p>
         </div>
       </div>
 

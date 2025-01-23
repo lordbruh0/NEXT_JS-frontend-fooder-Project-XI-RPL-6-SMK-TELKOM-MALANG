@@ -61,14 +61,61 @@ const TransaksiPage = () => {
             </div>
           </div>
 
-          <div className="flex gap-5  ">
+          <div className="flex gap-5 pb-5">
             <div className="w-full">
-            <FinancialCard />
+              <FinancialCard />
             </div>
             <div className="bg-red-50 w-full">
               asdasd
             </div>
           </div>
+
+          <div className="">
+            <div className="flex justify-between items-center">
+              <h1 className="text-lg font-black text-gray-700">Top User</h1>
+              <button className="rounded-full p-2 border-2 border-gray-500 ">Full Result</button>
+            </div>
+            <div>
+              <div className="flex text-gray-400 font-medium pt-6">
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-400 font-medium text-center w-full">Place</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-400 font-medium text-center w-full">Users</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-400 font-medium text-center w-full">Unit Price</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-400 font-medium text-center w-full">Revenue</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-400 font-medium text-center w-full">Rating</h1>
+                </div>
+              </div>
+              <div>
+              <div className="flex text-gray-700 font-medium pt-3">
+                <div className="w-full flex items-center justify-center">
+                  <SchoolIcon />
+                  <h1 className="text-gray-700 font-medium w-full">Place</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-700 font-medium text-center w-full">Users</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-700 font-medium text-center w-full">Unit Price</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-700 font-medium text-center w-full">Revenue</h1>
+                </div>
+                <div className="w-full flex items-center justify-center">
+                  <h1 className="text-gray-700 font-medium text-center w-full">Rating</h1>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
 
         </div>
 
