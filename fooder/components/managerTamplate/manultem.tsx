@@ -12,8 +12,8 @@ const MenuItem = ({ icon, label, path, active }: MenuItemProps) => {
   return ( 
     <Link
       href={path}
-      className={`flex items-center p-2 my-2 ${
-        active ? "text-[#F45846] font-semibold" : "text-gray-500"
+      className={`flex items-center p-2 my-2 hover:bg-gray-100 rounded-md ${
+        active ? "text-[#F45846] font-semibold bg-red-50" : "text-gray-500"
       }`}
     >
       <span className="mr-3">{icon}</span>
