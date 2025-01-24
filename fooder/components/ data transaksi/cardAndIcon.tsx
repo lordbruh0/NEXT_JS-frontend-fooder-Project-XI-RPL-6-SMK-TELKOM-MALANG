@@ -1,7 +1,15 @@
+import { LucideIcon } from "lucide-react";
 import React from "react";
 
+type InfoType = {
+  Icon: LucideIcon;
+  title: string;
+  subtitle: string;
+  iconClassName?: string;
+}
+
 // Komponen InfoCard
-const InfoCard = ({ Icon, title, subtitle, iconClassName = "text-gray-500" }) => {
+const InfoCard: React.FC<InfoType> = ({ Icon, title, subtitle, iconClassName = "text-gray-500" }) => {
   return (
     <div className="flex items-center">
       {/* Icon Section */}

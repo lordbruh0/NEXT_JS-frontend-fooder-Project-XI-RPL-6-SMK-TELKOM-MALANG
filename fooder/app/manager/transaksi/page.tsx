@@ -1,10 +1,11 @@
 "use client"
 import { useState } from "react";
-import { ChartLineIcon, LayoutGrid, LayoutGridIcon, LockKeyholeIcon, SchoolIcon } from "lucide-react";
+import { ChartLineIcon, LayoutGrid, LayoutGridIcon, LockKeyholeIcon, PiggyBankIcon, SchoolIcon } from "lucide-react";
 import InfoCard from "@/components/ data transaksi/cardAndIcon";
 import FinancialCard from "@/components/ data transaksi/FinaCialCard";
 import SchoolList from "@/components/ data transaksi/topUser";
 import CandlestickChart from "@/components/ data transaksi/CandleStickChart";
+import MoneyGo from "@/components/ data transaksi/MoneyGo";
 // import GridIcon from "../../../components/ data transaksi/icon";
 
 const TransaksiPage = () => {
@@ -13,7 +14,7 @@ const TransaksiPage = () => {
     <div className="justify-center bg-white mx-6">
       <div className="px-5  w-auto rounded-xl mb-12 flex">
 
-        <div className="h-screen w-screen bg-gray-50 p-5 rounded-xl">
+        <div className="h-screen w-screen p-5 rounded-xl">
           <div className="flex gap-10 justify-between pb-5">
 
             <InfoCard
@@ -63,15 +64,15 @@ const TransaksiPage = () => {
             </div>
           </div>
 
-          <div>     
-          <div className="flex gap-5 pb-5 w-full">
-            <div className="w-full">
-              <FinancialCard />
+          <div>
+            <div className="flex gap-5 pb-5 w-full">
+              <div className="w-full">
+                <FinancialCard />
+              </div>
+              <div className="w-full items-center justify-center flex pt-10">
+                <CandlestickChart />
+              </div>
             </div>
-            <div className="w-full items-center justify-center flex pt-10">
-            <CandlestickChart />
-            </div>
-          </div>
           </div>
 
           <div className="">
@@ -87,8 +88,49 @@ const TransaksiPage = () => {
 
         </div>
 
-        <div className=" w-2/5 bg-blue-100 h-screen p-5 rounded-xl">
-          asacsa
+        <div className=" w-2/5 bg-gray-50 h-screen pt-5 px-14 itemd-center rounded-xl justify-evenly flex-col">
+          <div>
+          <div>
+            <h1 className="text-2xl font-medium">Where the money go?</h1>
+          </div>
+          <div>
+            <MoneyGo
+              title="Transaction"
+              cost="872.400"
+              persen={15}
+            />
+            <MoneyGo
+              title="Teams"
+              cost="1.378.200"
+              persen={43}
+            />
+            <MoneyGo
+              title="Conversation"
+              cost="928.500"
+              persen={30}
+            />
+            <MoneyGo
+              title="Transportation"
+              cost="420.700"
+              persen={20}
+            />
+            <MoneyGo
+              title="Vehcile"
+              cost="520.000"
+              persen={5}
+            />
+          </div>
+          </div>
+          <div className="bg-blue-50 h-auto w-full flex justify-center items-center p-5 rounded-3xl mt-64">
+            <div className="flex flex-col justify-center items-center text-center">
+              <PiggyBankIcon className="text-blue-500 w-20 h-20" />
+              <h1 className="text-2xl font-medium text-black pb-1">Save More Money</h1>
+              <p className="w-full max-w-72 text-gray-500 text-xs">
+              Discover practical tips and strategies to effectively manage your finances, and save more money to achieve your financial goals.
+              </p>
+              <button className="text-sm py-3 px-16 rounded-md bg-blue-500 mt-5 text-white">VIEW TIPS</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
