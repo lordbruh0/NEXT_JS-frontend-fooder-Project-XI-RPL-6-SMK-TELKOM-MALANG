@@ -121,7 +121,7 @@ const TransaksiPage = () => {
             />
           </div>
           </div>
-          <div className="bg-blue-50 h-auto w-full flex justify-center items-center p-5 rounded-3xl mt-64">
+          <div className="bg-blue-50 h-auto w-full flex justify-center items-center p-5 rounded-3xl mt-56">
             <div className="flex flex-col justify-center items-center text-center">
               <PiggyBankIcon className="text-blue-500 w-20 h-20" />
               <h1 className="text-2xl font-medium text-black pb-1">Save More Money</h1>
