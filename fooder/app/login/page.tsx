@@ -67,27 +67,27 @@ const LoginPage = () => {
             </div>
             <Image
               alt="moklet-app"
-              width={150}
-              height={100}
+              width={200}
+              height={200}
               src={LogoLogin}
               className="h-auto my-10"
             />
-            <h4 className="text-2xl uppercase font-semibold text-primary mb-4">
-              FOODER
+            <h4 className="text-2xl uppercase font-semibold text-black mb-4">
+              ADMIN PAGE
             </h4>
             <span className="text-sm text-slate-500 font-medium text-center">
-              Welcome Manager and Cashier
+              Welcome Admin and PIC
             </span>
             <form action="" onSubmit={handleSubmit} className="w-full my-10">
               <div className="flex w-full my-4">
-                <div className="bg-primary rounded-l-md p-3">
+                <div className="rounded-l-md p-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="size-4"
+                    className="size-4 text-[#F45846]"
                   >
                     <path
                       strokeLinecap="round"
@@ -98,7 +98,7 @@ const LoginPage = () => {
                 </div>
                 <input
                   type="text"
-                  className="border p-2 grow rounded-r-md focus:outline-none focus:ring-primary focus:border-primary"
+                  className="p-2 grow rounded bg-transparent"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email"
@@ -113,7 +113,7 @@ const LoginPage = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="size-4"
+                    className="size-4 text-[#F45846]"
                   >
                     <path
                       strokeLinecap="round"
@@ -124,9 +124,9 @@ const LoginPage = () => {
                 </div>
                 <input
                   type={showPassword ? `text` : `password`}
-                  className="border p-2 grow focus:outline-none focus:ring-primary focus:border-primary"
+                  className="p-2 grow bg-transparent"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)} 
                   placeholder="Password"
                   id={`password-industri-app`}
                 />
@@ -141,7 +141,7 @@ const LoginPage = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="size-4"
+                      className="size-4 text-[#F45846]"
                     >
                       <path
                         strokeLinecap="round"
@@ -156,7 +156,7 @@ const LoginPage = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="size-4"
+                      className="size-4 text-[#F45846]"
                     >
                       <path
                         strokeLinecap="round"
