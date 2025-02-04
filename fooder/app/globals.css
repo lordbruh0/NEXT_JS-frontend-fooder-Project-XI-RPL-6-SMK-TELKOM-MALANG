@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-cover {
+  background-image: url('@/../../public/image/telkom.jpg');
+}
+
+.bg-cover-2 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
