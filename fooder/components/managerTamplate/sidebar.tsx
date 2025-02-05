@@ -15,6 +15,9 @@ import MenuItem from "./manultem";
 import LogoPic from "../../public/image/Telkom Society 1.png";
 import ProfilePic from "../../public/image/profile.jpg";
 import path from "path";
+import { removeCookie } from "../../lib/ client-cookies";
+import { useRouter } from "next/navigation";
+
 
 type MenuType = {
   id: string;
@@ -36,6 +39,18 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
   const toggleDropdown = () => {
     setIsDropdonwOpen(!isDropdownOpen);
   };
+
+  const router = useRouter(); // Call useRouter inside the component
+
+const handleLogout = () => {
+  removeCookie("token");
+  removeCookie("id");
+  removeCookie("name");
+  removeCookie("role");
+  router.replace("/login"); // Use router.replace correctly
+};
+
+
   return (
     <div className="w-full min-h-dvh bg-white ">
       {/* header  */}
@@ -105,7 +120,7 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
                 d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
               />
             </svg>
-            <span className="font-bold">Logout</span>
+            <button className="font-bold" onClick={handleLogout}>Logout</button>
           </button>
 
           {isDropdownOpen && (
