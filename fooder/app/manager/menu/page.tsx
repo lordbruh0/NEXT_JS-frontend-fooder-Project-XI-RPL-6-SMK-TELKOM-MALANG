@@ -3,7 +3,7 @@ import { IMenu } from "@/app/types";
 import { getCookies } from "@/lib/server-cookies";
 import { BASE_API_URL, BASE_IMAGE_MENU } from "@/global";
 import { get } from "@/lib/api-bridge";
-import { AlertInfo } from "../../../../../NEXT_JS-button--Project-XI-RPL-6-SMK-TELKOM-MALANG/my-app/components/alert";
+import { AlertInfo } from "@/components/alert"; 
 import Image from "next/image";
 import Search from "./search";
 import React from "react";
@@ -56,7 +56,42 @@ const MenuPage = async ({
           <Search url={`/manager/menu`} search={search} />
         </div>
       </div>
-      
+      {
+        menu.length == 0 ?
+        <AlertInfo title="informasi">
+          No data Available
+        </AlertInfo>
+        :
+       <div className="m-2">
+        {menu.map((data, index) => (
+          <div key={`keyPresrasi${index}`} className={`flex flex-wrap shadow m-2`}>
+            <div className="w-full md:w-1/12 p-2">
+              <small className="text-sm font-bold text-primary">Picture</small><br />
+              <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
+            </div>
+            <div className="w-full md:w-2/12 p-2">
+              <small className="text-sm font-bold text-primary">Name</small><br />
+              {data.name}
+            </div>
+            <div className="w-full md:w-2/12 p-2">
+              <small className="text-sm font-bold text-primary">Price</small><br />
+              {data.price}
+            </div>
+            <div className="w-full md:w-2/12 p-2">
+              <small className="text-sm font-bold text-primary">Description</small><br />
+              {data.description}
+            </div>
+            <div className="w-full md:w-2/12 p-2">
+              <small className="text-sm font-bold text-primary">Category</small><br />
+              {data.category}
+            </div>
+            <div className="w-full md:w-2/12 p-2">
+              <small className="text-sm font-bold text-primary">Action</small><br />
+            </div>
+          </div>
+        ))}
+       </div>
+      }
     </div>
 
     //   <div className="justify-center bg-white mx-6">
