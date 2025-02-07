@@ -46,9 +46,9 @@ const MenuPage = async ({
       <div className="px-5  w-auto rounded-xl mb-12">
         <h1 className="text-2xl text-[#F45846] font-semibold px-2 pb-2">Manage menu data</h1>
         <p className="text-sm text-secondary px-2 pb-2">
-       This page displays menu data, allowing menus to view details, 
-       search, and manage menu items by adding, editing, or deleting them.
-       </p>
+          This page displays menu data, allowing menus to view details,
+          search, and manage menu items by adding, editing, or deleting them.
+        </p>
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
         <div className="flex justify-between items-center mb-4">
@@ -58,60 +58,67 @@ const MenuPage = async ({
           </div>
         </div>
 
-        <div className="p-6">
-          {/* Data Siswa */}
-          <div>
-            {menu.map((data, index) => (
-              <div key={`keyPresrasi${index}`} className="h-16 w-full flex items-center justify-between mb-2">
-                {/* Nama */}
-                <div className="w-2/4 h-full flex flex-col justify-center items-center">
-                  <small className="text-sm font-bold text-primary">Picture</small><br />
-                  <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
-                </div>
+        {
+          menu.length == 0 ?
+            <AlertInfo title="informasi">
+              No data Available
+            </AlertInfo>
+            :
+            <>
+              <div className="p-6">
+                {/* Data Siswa */}
+                <div>
+                  {menu.map((data, index) => (
+                    <div key={`keyPresrasi${index}`} className="h-16 w-full flex items-center justify-between mb-2">
+                      {/* Nama */}
+                      <div className="w-2/4 h-full flex flex-col justify-center items-center">
+                        <small className="text-sm font-bold text-primary">Picture</small><br />
+                        <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
+                      </div>
 
-                {/* Email */}
-                <div className="w-2/4 h-full flex flex-col justify-center items-center">
-                  <small className="text-sm font-bold text-primary">Name</small><br />
-                  <h1 className="text-center my-auto mx-auto text-sm">{data.name}</h1>
-                </div>
+                      {/* Email */}
+                      <div className="w-2/4 h-full flex flex-col justify-center items-center">
+                        <small className="text-sm font-bold text-primary">Name</small><br />
+                        <h1 className="text-center my-auto mx-auto text-sm">{data.name}</h1>
+                      </div>
 
-                {/* Kelas */}
-                <div className="w-2/4 h-full flex flex-col justify-center items-center">
-                  <small className="text-sm font-bold text-primary">Price</small><br />
-                  <h1 className="text-sm">Rp.{data.price}</h1>
-                </div>
-                <div className="w-full h-full flex flex-col justify-center items-center">
-                  <small className="text-sm font-bold text-primary">Description</small><br />
-                  <h1 className="text-sm">{data.description}</h1>
-                </div>
-                <div className="w-3/4 h-full flex flex-col justify-center items-center">
-                  <small className="text-sm font-bold text-primary">Category</small><br />
-                  <h1 className="text-sm">{data.category}</h1>
-                </div>
+                      {/* Kelas */}
+                      <div className="w-2/4 h-full flex flex-col justify-center items-center">
+                        <small className="text-sm font-bold text-primary">Price</small><br />
+                        <h1 className="text-sm">Rp.{data.price}</h1>
+                      </div>
+                      <div className="w-full h-full flex flex-col justify-center items-center">
+                        <small className="text-sm font-bold text-primary">Description</small><br />
+                        <h1 className="text-sm">{data.description}</h1>
+                      </div>
+                      <div className="w-3/4 h-full flex flex-col justify-center items-center">
+                        <small className="text-sm font-bold text-primary">Category</small><br />
+                        <h1 className="text-sm">{data.category}</h1>
+                      </div>
 
-                <div className="w-3/4 h-full flex flex-col justify-center items-center">
-                  <small className="text-sm font-bold text-primary">Action</small><br />
-                  <div className="flex gap-10">
-                    <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                      View
-                    </button>
-                    <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                      Edit
-                    </button>
-                    <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                      Delete
-                    </button>
+                      <div className="w-3/4 h-full flex flex-col justify-center items-center">
+                        <small className="text-sm font-bold text-primary">Action</small><br />
+                        <div className="flex gap-10">
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            View
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Edit
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Delete
+                          </button>
 
-                  </div>
-                </div>
-                {/* <div className="w-2/5 h-full flex flex-col justify-center items-center">
+                        </div>
+                      </div>
+                      {/* <div className="w-2/5 h-full flex flex-col justify-center items-center">
                   <h1
                     className={`text-sm ${team.status === "open" ? "text-green-500" : "text-red-500"} text-lg font-semibold`}
                   >
                     {team.status}
                   </h1>
                 </div> */}
-                {/* <div className="w-full h-full flex justify-end items-center gap-7">
+                      {/* <div className="w-full h-full flex justify-end items-center gap-7">
                   <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                     View
                   </button>
@@ -122,12 +129,12 @@ const MenuPage = async ({
                     Delete
                   </button>
                 </div> */}
-              </div>
-            ))}
-          </div>
+                    </div>
+                  ))}
+                </div>
 
 
-          {/* <div className="flex justify-between items-center mt-10">
+                {/* <div className="flex justify-between items-center mt-10">
             <div>
               <p>
                 Showing {startEntry} to {endEntry} of {arrayTeam.length} Entries
@@ -164,7 +171,9 @@ const MenuPage = async ({
               </button>
             </div>
           </div> */}
-        </div>
+              </div>
+            </>
+        }
 
       </div>
 
