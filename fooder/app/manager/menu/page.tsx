@@ -1,9 +1,8 @@
-import TeamList from "@/components/data team";
 import { IMenu } from "@/app/types";
 import { getCookies } from "@/lib/server-cookies";
 import { BASE_API_URL, BASE_IMAGE_MENU } from "@/global";
 import { get } from "@/lib/api-bridge";
-import { AlertInfo } from "@/components/alert"; 
+import { AlertInfo } from "@/components/alert";
 import Image from "next/image";
 import Search from "./search";
 import React from "react";
@@ -43,65 +42,133 @@ const MenuPage = async ({
     </span>;
   };
   return (
-    <div className="m-2 bg-white rounded-lg p-3 border-t-4 border-t-primary shadow-md">
-      <h1 className="text-2xl text-[#F45846] font-semibold p-2">
-        Manage team data
-      </h1>
-      <p className="text-sm text-secondary mb-4">
-        This page displays menu data, allowing menus to view details, search,
-        and manage menu items by adding, editing, or deleting them.
-      </p>
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center w-full max-w-md flex-grow">
-          <Search url={`/manager/menu`} search={search} />
-        </div>
-      </div>
-      {
-        menu.length == 0 ?
-        <AlertInfo title="informasi">
-          No data Available
-        </AlertInfo>
-        :
-       <div className="m-2">
-        {menu.map((data, index) => (
-          <div key={`keyPresrasi${index}`} className={`flex flex-wrap shadow m-2`}>
-            <div className="w-full md:w-1/12 p-2">
-              <small className="text-sm font-bold text-primary">Picture</small><br />
-              <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
-            </div>
-            <div className="w-full md:w-2/12 p-2">
-              <small className="text-sm font-bold text-primary">Name</small><br />
-              {data.name}
-            </div>
-            <div className="w-full md:w-2/12 p-2">
-              <small className="text-sm font-bold text-primary">Price</small><br />
-              {data.price}
-            </div>
-            <div className="w-full md:w-2/12 p-2">
-              <small className="text-sm font-bold text-primary">Description</small><br />
-              {data.description}
-            </div>
-            <div className="w-full md:w-2/12 p-2">
-              <small className="text-sm font-bold text-primary">Category</small><br />
-              {data.category}
-            </div>
-            <div className="w-full md:w-2/12 p-2">
-              <small className="text-sm font-bold text-primary">Action</small><br />
-            </div>
+    <div className="justify-center bg-white mx-6">
+      <div className="px-5  w-auto rounded-xl mb-12">
+        <h1 className="text-2xl text-[#F45846] font-semibold px-2 pb-2">Manage menu data</h1>
+        <p className="text-sm text-secondary px-2 pb-2">
+       This page displays menu data, allowing menus to view details, 
+       search, and manage menu items by adding, editing, or deleting them.
+       </p>
+
+        <hr className="border=1 border-[#A8A8A8] w-full" />
+        <div className="flex justify-between items-center mb-4">
+          {/* Search Bar */}
+          <div className="flex items-center w-full max-w-md flex-grow pt-6">
+            <Search url={`/manager/menu`} search={search} />
           </div>
-        ))}
-       </div>
-      }
+        </div>
+
+        <div className="p-6">
+          {/* Data Siswa */}
+          <div>
+            {menu.map((data, index) => (
+              <div key={`keyPresrasi${index}`} className="h-16 w-full flex items-center justify-between mb-2">
+                {/* Nama */}
+                <div className="w-2/4 h-full flex flex-col justify-center items-center">
+                  <small className="text-sm font-bold text-primary">Picture</small><br />
+                  <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
+                </div>
+
+                {/* Email */}
+                <div className="w-2/4 h-full flex flex-col justify-center items-center">
+                  <small className="text-sm font-bold text-primary">Name</small><br />
+                  <h1 className="text-center my-auto mx-auto text-sm">{data.name}</h1>
+                </div>
+
+                {/* Kelas */}
+                <div className="w-2/4 h-full flex flex-col justify-center items-center">
+                  <small className="text-sm font-bold text-primary">Price</small><br />
+                  <h1 className="text-sm">Rp.{data.price}</h1>
+                </div>
+                <div className="w-full h-full flex flex-col justify-center items-center">
+                  <small className="text-sm font-bold text-primary">Description</small><br />
+                  <h1 className="text-sm">{data.description}</h1>
+                </div>
+                <div className="w-3/4 h-full flex flex-col justify-center items-center">
+                  <small className="text-sm font-bold text-primary">Category</small><br />
+                  <h1 className="text-sm">{data.category}</h1>
+                </div>
+
+                <div className="w-3/4 h-full flex flex-col justify-center items-center">
+                  <small className="text-sm font-bold text-primary">Action</small><br />
+                  <div className="flex gap-10">
+                    <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                      View
+                    </button>
+                    <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                      Edit
+                    </button>
+                    <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                      Delete
+                    </button>
+
+                  </div>
+                </div>
+                {/* <div className="w-2/5 h-full flex flex-col justify-center items-center">
+                  <h1
+                    className={`text-sm ${team.status === "open" ? "text-green-500" : "text-red-500"} text-lg font-semibold`}
+                  >
+                    {team.status}
+                  </h1>
+                </div> */}
+                {/* <div className="w-full h-full flex justify-end items-center gap-7">
+                  <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                    View
+                  </button>
+                  <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                    Edit
+                  </button>
+                  <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                    Delete
+                  </button>
+                </div> */}
+              </div>
+            ))}
+          </div>
+
+
+          {/* <div className="flex justify-between items-center mt-10">
+            <div>
+              <p>
+                Showing {startEntry} to {endEntry} of {arrayTeam.length} Entries
+              </p>
+            </div>
+            <div className="justify-end items-center space-x-2">
+              
+              <button
+                className={`px-4 py-2 rounded ${currentPage === 1 ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </button>
+    
+           
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  className={`px-4 py-2 rounded ${currentPage === index + 1 ? "bg-[#F45846] text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+                  onClick={() => goToPage(index + 1)}
+                >
+                  {index + 1}
+                </button>
+              ))}
+    
+            
+              <button
+                className={`px-4 py-2 rounded ${currentPage === totalPages ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div>
+          </div> */}
+        </div>
+
+      </div>
+
     </div>
-
-    //   <div className="justify-center bg-white mx-6">
-    //   <div className="px-5 bg-[#F6F6F6] w-auto rounded-xl mb-12">
-    //     <h1 className="text-2xl text-[#F45846] font-semibold p-2">Manage team data</h1>
-    //     <hr className="border=1 border-[#A8A8A8] w-full" />
-    //     <TeamList />
-    //   </div>
-
-    // </div>
   );
 };
 
