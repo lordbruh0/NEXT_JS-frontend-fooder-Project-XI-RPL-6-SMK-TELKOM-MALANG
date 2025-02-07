@@ -14,7 +14,7 @@ const Search = ({ url, search }: Props) => {
 
   const handleSearch = (e: KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
-    router.push(`${url}?search=${keyword}`);
+    router.push(${url}?search=${keyword});
   };
 
   return (
