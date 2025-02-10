@@ -10,7 +10,7 @@ import React from "react";
 const getUser = async (search: string): Promise<IUser[]> => {
   try {
     const TOKEN = await getCookies("token");
-    const url = ${BASE_API_URL}/user?search=${search};
+    const url = `${BASE_API_URL}/user?search=${search}`;
     const { data } = await get(url, TOKEN);
     let result: IUser[] = [];
     if (data?.status) result = [...data.data];
@@ -28,6 +28,19 @@ const UserPage = async ({
 }) => {
   const search = searchParams.search ? searchParams.search.toString() : "";
   const user: IUser[] = await getUser(search);
+  const category = (cat: string): React.ReactNode => {
+    if (cat === "FOOD") {
+      return (
+        <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">
+          Snack
+        </span>
+      );
+    }
+    return;
+    <span className="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
+      Drink
+    </span>;
+  }
 
   return (
     <div className="justify-center bg-white mx-6">
@@ -43,7 +56,7 @@ const UserPage = async ({
         <hr className="border=1 border-[#A8A8A8] w-full" />
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
-            <Search url={/manager/user} search={search} />
+            <Search url={`/manager/user`} search={search} />
           </div>
         </div>
         {user.length === 0 ? (
@@ -53,7 +66,7 @@ const UserPage = async ({
             <div>
               {user.map((data, index) => (
                 <div
-                  key={keyUser${index}}
+                  key={`keyUser${index}`}
                   className="h-16 w-full flex items-center justify-between mb-10">
                   <div className="w-2/4 h-full flex flex-col justify-center items-center">
                     <small className="text-sm font-bold text-primary">
@@ -63,7 +76,7 @@ const UserPage = async ({
                     <Image
                       width={40}
                       height={40}
-                      src={${BASE_IMAGE_PROFILE}/${data.profile_picture}}
+                      src={`${BASE_IMAGE_PROFILE}/${data.profile_picture}`}
                       className="rounded-full overflow-hidden object-cover"
                       alt="preview"
                       unoptimized
