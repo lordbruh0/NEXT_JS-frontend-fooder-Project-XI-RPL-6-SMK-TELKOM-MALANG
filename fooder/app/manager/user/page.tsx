@@ -64,35 +64,42 @@ const UserPage = async ({
           </div>
         </div>
 
-        <div className="p-6">
+        <div className="">
           <table className="w-full border-collapse rounded-lg overflow-hidden">
-            <thead>
-              <tr className="text-left bg-[#F6F6F6]">
-                <th className="p-3">Picture</th>
-                <th className="p-3">Name</th>
-                <th className="p-3">Email</th>
-                <th className="p-3">Role</th>
-                <th className="p-3">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                user.length == 0 ?
-                  <AlertInfo title="informasi">
-                    No data Available
-                  </AlertInfo>
-
-                  :
-                  <>
-                    {user.map((data, index) => (
-                      <tr className="border-b hover:bg-gray-100" key={`keyPresrasi${index}`}>
-                        <td className="p-3">
-                          <Image width={40} height={40} src={`${BASE_IMAGE_PROFILE}/${data.profile_picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
-                        </td>
-                        <td className="p-3 text-center">{data.name}</td>
-                        <td className="p-3 text-center">{data.email}</td>
-                        <td className="p-3 text-center">{data.role}</td>
-                        <td className="p-3 text-center gap-2">
+            {user.length == 0 ? (
+              <AlertInfo title="informasi">No data Available</AlertInfo>
+            ) : (
+              <>
+                <thead>
+                  <tr className="text-left bg-[#F6F6F6]">
+                    <th className="p-3">Picture</th>
+                    <th className="p-3">Name</th>
+                    <th className="p-3">Email</th>
+                    <th className="p-3">Role</th>
+                    <th className="p-3">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {user.map((data, index) => (
+                    <tr
+                      className="border-b hover:bg-gray-100"
+                      key={`keyPresrasi${index}`}
+                    >
+                      <td className="p-3">
+                        <Image
+                          width={40}
+                          height={40}
+                          src={`${BASE_IMAGE_PROFILE}/${data.profile_picture}`}
+                          className="rounded-sm overflow-hidden"
+                          alt="preview"
+                          unoptimized
+                        />
+                      </td>
+                      <td className="p-3 text-left">{data.name}</td>
+                      <td className="p-3 text-left">{data.email}</td>
+                      <td className="p-3 text-left">{data.role}</td>
+                      <td className="p-3 text-left w-60">
+                        <div className="flex gap-5">
                           <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                             View
                           </button>
@@ -102,12 +109,13 @@ const UserPage = async ({
                           <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                             Delete
                           </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </>
-              }
-            </tbody>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </>
+            )}
           </table>
         </div>
         {/* {user.length === 0 ? (

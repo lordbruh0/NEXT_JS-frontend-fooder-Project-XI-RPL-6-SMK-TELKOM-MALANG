@@ -32,7 +32,7 @@ let MenuList: IPropMenu[] = [
   {
     id: `user`,
     path: `/manager/user`,
-    label: `Student Data`,
+    label: `User Data`,
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ let MenuList: IPropMenu[] = [
   {
     id: `menu`,
     path: `/manager/menu`,
-    label: `Team Data`,
+    label: `Menu Data`,
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

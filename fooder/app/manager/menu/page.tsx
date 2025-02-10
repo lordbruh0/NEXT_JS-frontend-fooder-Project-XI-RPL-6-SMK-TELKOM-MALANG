@@ -45,10 +45,12 @@ const MenuPage = async ({
   return (
     <div className="justify-center bg-white mx-6">
       <div className="px-5  w-auto rounded-xl mb-12">
-        <h1 className="text-2xl text-[#F45846] font-semibold px-2 pb-2">Manage menu data</h1>
+        <h1 className="text-2xl text-[#F45846] font-semibold px-2 pb-2">
+          Manage menu data
+        </h1>
         <p className="text-sm text-secondary px-2 pb-2">
-          This page displays menu data, allowing menus to view details,
-          search, and manage menu items by adding, editing, or deleting them.
+          This page displays menu data, allowing menus to view details, search,
+          and manage menu items by adding, editing, or deleting them.
         </p>
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
@@ -59,52 +61,58 @@ const MenuPage = async ({
           </div>
         </div>
 
-        <div className="p-6">
+        <div className="">
           <table className="w-full border-collapse rounded-lg overflow-hidden">
-            <thead>
-              <tr className="text-left bg-[#F6F6F6]">
-                <th className="p-3">Picture</th>
-                <th className="p-3">Name</th>
-                <th className="p-3">Price</th>
-                <th className="p-3">Description</th>
-                <th className="p-3">Category</th>
-                <th className="p-3">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                menu.length == 0 ?
-                <AlertInfo title="informasi">
-                  No data Available
-                </AlertInfo>
-              :
+            {menu.length == 0 ? (
+              <AlertInfo title="informasi">No data Available</AlertInfo>
+            ) : (
               <>
-              {menu.map((data, index) => (
-                <tr className="border-b hover:bg-gray-100" key={`keyPresrasi${index}`}>
-                  <td className="p-3">
-                  <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
-                  </td>
-                  <td className="p-3 text-center">{data.name}</td>
-                  <td className="p-3 text-center">{data.price}</td>
-                  <td className="p-3 text-center">{data.description}</td>
-                  <td className="p-3 text-center">{data.category}</td>
-                  <td className="p-3 text-center gap-2">
-                  <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            View
-                          </button>
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            Edit
-                          </button>
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            Delete
-                          </button>
-                  </td>
-
-                </tr>
-              ))}
+                <thead>
+                  <tr className="text-left bg-[#F6F6F6]">
+                    <th className="p-3">Picture</th>
+                    <th className="p-3">Name</th>
+                    <th className="p-3">Price</th>
+                    <th className="p-3">Description</th>
+                    <th className="p-3">Category</th>
+                    <th className="p-3">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {menu.map((data, index) => (
+                    <tr
+                      className="border-b hover:bg-gray-100"
+                      key={`keyPresrasi${index}`}
+                    >
+                      <td className="p-3">
+                        <Image
+                          width={40}
+                          height={40}
+                          src={`${BASE_IMAGE_MENU}/${data.picture}`}
+                          className="rounded-sm overflow-hidden"
+                          alt="preview"
+                          unoptimized
+                        />
+                      </td>
+                      <td className="p-3 text-center">{data.name}</td>
+                      <td className="p-3 text-center">{data.price}</td>
+                      <td className="p-3 text-center">{data.description}</td>
+                      <td className="p-3 text-center">{data.category}</td>
+                      <td className="p-3 text-center gap-2">
+                        <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                          View
+                        </button>
+                        <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                          Edit
+                        </button>
+                        <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               </>
-              }
-            </tbody>
+            )}
           </table>
         </div>
         {/* {
@@ -115,8 +123,8 @@ const MenuPage = async ({
             :
             <>
               <div className="p-6"> */}
-                {/* Data Siswa */}
-                {/* <div>
+        {/* Data Siswa */}
+        {/* <div>
                   {menu.map((data, index) => (
                     <div key={`keyPresrasi${index}`} className="h-16 w-full flex items-center justify-between mb-2">
                       
@@ -131,8 +139,8 @@ const MenuPage = async ({
                         <h1 className="text-center my-auto mx-auto text-sm">{data.name}</h1>
                       </div> */}
 
-                      {/* Kelas */}
-                      {/* <div className="w-2/4 h-full flex flex-col justify-center items-center">
+        {/* Kelas */}
+        {/* <div className="w-2/4 h-full flex flex-col justify-center items-center">
                         <small className="text-sm font-bold text-primary">Price</small><br />
                         <h1 className="text-sm">Rp.{data.price}</h1>
                       </div>
@@ -160,14 +168,14 @@ const MenuPage = async ({
 
                         </div>
                       </div> */}
-                      {/* <div className="w-2/5 h-full flex flex-col justify-center items-center">
+        {/* <div className="w-2/5 h-full flex flex-col justify-center items-center">
                   <h1
                     className={`text-sm ${team.status === "open" ? "text-green-500" : "text-red-500"} text-lg font-semibold`}
                   >
                     {team.status}
                   </h1>
                 </div> */}
-                      {/* <div className="w-full h-full flex justify-end items-center gap-7">
+        {/* <div className="w-full h-full flex justify-end items-center gap-7">
                   <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                     View
                   </button>
@@ -178,12 +186,11 @@ const MenuPage = async ({
                     Delete
                   </button>
                 </div> */}
-                    {/* </div>
+        {/* </div>
                   ))}
                 </div> */}
 
-
-                {/* <div className="flex justify-between items-center mt-10">
+        {/* <div className="flex justify-between items-center mt-10">
             <div>
               <p>
                 Showing {startEntry} to {endEntry} of {arrayTeam.length} Entries
@@ -220,12 +227,10 @@ const MenuPage = async ({
               </button>
             </div>
           </div> */}
-              {/* </div>
+        {/* </div>
             </>
         } */}
-
       </div>
-
     </div>
   );
 };
