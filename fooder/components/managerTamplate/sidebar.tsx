@@ -17,7 +17,7 @@ import ProfilePic from "../../public/image/profile.jpg";
 import path from "path";
 import { removeCookie } from "../../lib/ client-cookies";
 import { useRouter } from "next/navigation";
-
+import SearchGlobal from "./searchGlobal";
 
 type MenuType = {
   id: string;
@@ -42,14 +42,13 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
 
   const router = useRouter(); // Call useRouter inside the component
 
-const handleLogout = () => {
-  removeCookie("token");
-  removeCookie("id");
-  removeCookie("name");
-  removeCookie("role");
-  router.replace("/login"); // Use router.replace correctly
-};
-
+  const handleLogout = () => {
+    removeCookie("token");
+    removeCookie("id");
+    removeCookie("name");
+    removeCookie("role");
+    router.replace("/login"); // Use router.replace correctly
+  };
 
   return (
     <div className="w-full min-h-dvh bg-white ">
@@ -76,31 +75,25 @@ const handleLogout = () => {
         </div>
 
         <div className="relative flex items-center justify-center">
-        <div className="relative w-full">
-  <input
-    type="text"
-    placeholder="Search"
-    className="w-72 px-6 py-1  rounded-md focus:outline-none focus:ring-2 focus:ring-[#F45846] text-black placeholder:text-black placeholder:text-start bg-[#F6F6F6] "
-  />
-  <div className="absolute inset-y-0 right-0 flex items-center px-5 bg-[#F45846] justify-center rounded-r-md">
-  <svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  viewBox="0 0 24 24"
-  strokeWidth={1.5}
-  stroke="currentColor"
-  className="w-5 h-5 text-white"
->
-  <path
-    strokeLinecap="round"
-    strokeLinejoin="round"  
-    d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.607-10.607 7.5 7.5 0 0 0 10.607 10.607z"
-  />
-</svg>
-
-  </div>
-</div>
-
+          <div className="relative w-full">
+            <SearchGlobal />
+            <div className="absolute inset-y-0 right-0 flex items-center px-5 bg-[#F45846] justify-center rounded-r-md">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5 text-white"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.607-10.607 7.5 7.5 0 0 0 10.607 10.607z"
+                />
+              </svg>
+            </div>
+          </div>
 
           <button
             onClick={toggleDropdown}
@@ -120,7 +113,9 @@ const handleLogout = () => {
                 d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
               />
             </svg>
-            <button className="font-bold" onClick={handleLogout}>Logout</button>
+            <button className="font-bold" onClick={handleLogout}>
+              Logout
+            </button>
           </button>
 
           {isDropdownOpen && (
