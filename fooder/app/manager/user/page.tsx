@@ -63,7 +63,54 @@ const UserPage = async ({
             <Search url={`/manager/user`} search={search} />
           </div>
         </div>
-        {user.length === 0 ? (
+
+        <div className="p-6">
+          <table className="w-full border-collapse rounded-lg overflow-hidden">
+            <thead>
+              <tr className="text-left bg-[#F6F6F6]">
+                <th className="p-3">Picture</th>
+                <th className="p-3">Name</th>
+                <th className="p-3">Email</th>
+                <th className="p-3">Role</th>
+                <th className="p-3">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                user.length == 0 ?
+                  <AlertInfo title="informasi">
+                    No data Available
+                  </AlertInfo>
+
+                  :
+                  <>
+                    {user.map((data, index) => (
+                      <tr className="border-b hover:bg-gray-100" key={`keyPresrasi${index}`}>
+                        <td className="p-3">
+                          <Image width={40} height={40} src={`${BASE_IMAGE_PROFILE}/${data.profile_picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
+                        </td>
+                        <td className="p-3 text-center">{data.name}</td>
+                        <td className="p-3 text-center">{data.email}</td>
+                        <td className="p-3 text-center">{data.role}</td>
+                        <td className="p-3 text-center gap-2">
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            View
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Edit
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </>
+              }
+            </tbody>
+          </table>
+        </div>
+        {/* {user.length === 0 ? (
           <AlertInfo title="Informasi">No data available</AlertInfo>
         ) : (
           <div className="p-6">
@@ -134,7 +181,7 @@ const UserPage = async ({
               ))}
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { AlertInfo } from "@/components/alert";
 import Image from "next/image";
 import Search from "./search";
 import React from "react";
+import StudentList from "@/components/data student";
 
 const getMenu = async (search: string): Promise<IMenu[]> => {
   try {
@@ -58,32 +59,80 @@ const MenuPage = async ({
           </div>
         </div>
 
-        {
+        <div className="p-6">
+          <table className="w-full border-collapse rounded-lg overflow-hidden">
+            <thead>
+              <tr className="text-left bg-[#F6F6F6]">
+                <th className="p-3">Picture</th>
+                <th className="p-3">Name</th>
+                <th className="p-3">Price</th>
+                <th className="p-3">Description</th>
+                <th className="p-3">Category</th>
+                <th className="p-3">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                menu.length == 0 ?
+                <AlertInfo title="informasi">
+                  No data Available
+                </AlertInfo>
+              :
+              <>
+              {menu.map((data, index) => (
+                <tr className="border-b hover:bg-gray-100" key={`keyPresrasi${index}`}>
+                  <td className="p-3">
+                  <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
+                  </td>
+                  <td className="p-3 text-center">{data.name}</td>
+                  <td className="p-3 text-center">{data.price}</td>
+                  <td className="p-3 text-center">{data.description}</td>
+                  <td className="p-3 text-center">{data.category}</td>
+                  <td className="p-3 text-center gap-2">
+                  <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            View
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Edit
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Delete
+                          </button>
+                  </td>
+
+                </tr>
+              ))}
+              </>
+              }
+            </tbody>
+          </table>
+        </div>
+        {/* {
           menu.length == 0 ?
             <AlertInfo title="informasi">
               No data Available
             </AlertInfo>
             :
             <>
-              <div className="p-6">
+              <div className="p-6"> */}
                 {/* Data Siswa */}
-                <div>
+                {/* <div>
                   {menu.map((data, index) => (
                     <div key={`keyPresrasi${index}`} className="h-16 w-full flex items-center justify-between mb-2">
-                      {/* Nama */}
+                      
                       <div className="w-2/4 h-full flex flex-col justify-center items-center">
                         <small className="text-sm font-bold text-primary">Picture</small><br />
                         <Image width={40} height={40} src={`${BASE_IMAGE_MENU}/${data.picture}`} className="rounded-sm overflow-hidden" alt="preview" unoptimized />
                       </div>
 
-                      {/* Email */}
+                      
                       <div className="w-2/4 h-full flex flex-col justify-center items-center">
                         <small className="text-sm font-bold text-primary">Name</small><br />
                         <h1 className="text-center my-auto mx-auto text-sm">{data.name}</h1>
-                      </div>
+                      </div> */}
 
                       {/* Kelas */}
-                      <div className="w-2/4 h-full flex flex-col justify-center items-center">
+                      {/* <div className="w-2/4 h-full flex flex-col justify-center items-center">
                         <small className="text-sm font-bold text-primary">Price</small><br />
                         <h1 className="text-sm">Rp.{data.price}</h1>
                       </div>
@@ -110,7 +159,7 @@ const MenuPage = async ({
                           </button>
 
                         </div>
-                      </div>
+                      </div> */}
                       {/* <div className="w-2/5 h-full flex flex-col justify-center items-center">
                   <h1
                     className={`text-sm ${team.status === "open" ? "text-green-500" : "text-red-500"} text-lg font-semibold`}
@@ -129,9 +178,9 @@ const MenuPage = async ({
                     Delete
                   </button>
                 </div> */}
-                    </div>
+                    {/* </div>
                   ))}
-                </div>
+                </div> */}
 
 
                 {/* <div className="flex justify-between items-center mt-10">
@@ -171,9 +220,9 @@ const MenuPage = async ({
               </button>
             </div>
           </div> */}
-              </div>
+              {/* </div>
             </>
-        }
+        } */}
 
       </div>
 
