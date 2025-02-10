@@ -55,8 +55,7 @@ const MenuPage = async ({
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
         <div className="flex justify-between items-center mb-4">
-          {/* Search Bar */}
-          <div className="flex items-center w-full max-w-md flex-grow pt-6">
+          <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
             <Search url={`/manager/menu`} search={search} />
           </div>
         </div>
@@ -93,20 +92,22 @@ const MenuPage = async ({
                           unoptimized
                         />
                       </td>
-                      <td className="p-3 text-center">{data.name}</td>
-                      <td className="p-3 text-center">{data.price}</td>
-                      <td className="p-3 text-center">{data.description}</td>
-                      <td className="p-3 text-center">{data.category}</td>
-                      <td className="p-3 text-center gap-2">
-                        <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                          View
-                        </button>
-                        <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                          Edit
-                        </button>
-                        <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                          Delete
-                        </button>
+                      <td className="p-3 text-left py-6">{data.name}</td>
+                      <td className="p-3 text-left py-6">Rp{data.price}</td>
+                      <td className="p-3 text-left py-6">{data.description}</td>
+                      <td className="p-3 text-left py-6">{data.category}</td>
+                      <td className="p-3 text-left py-6 w-60">
+                        <div className="flex gap-5">
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            View
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Edit
+                          </button>
+                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
+                            Delete
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
