@@ -26,7 +26,10 @@ const UserPage = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const search = searchParams.search ? searchParams.search.toString() : "";
+  const search = Array.isArray(searchParams.search)
+    ? searchParams.search[0] || ""
+    : searchParams.search || "";
+
   const user: IUser[] = await getUser(search);
   const category = (cat: string): React.ReactNode => {
     if (cat === "FOOD") {
@@ -36,11 +39,12 @@ const UserPage = async ({
         </span>
       );
     }
-    return;
-    <span className="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
-      Drink
-    </span>;
-  }
+    return (
+      <span className="bg-purple-100 text-purple-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
+        Drink
+      </span>
+    );
+  };
 
   return (
     <div className="justify-center bg-white mx-6">
@@ -76,11 +80,12 @@ const UserPage = async ({
                     <Image
                       width={40}
                       height={40}
-                      src={`${BASE_IMAGE_PROFILE}/${data.profile_picture}`}
+                      src={data.profile_picture ? `${BASE_IMAGE_PROFILE}/${data.profile_picture}` : "/default-profile.png"}
                       className="rounded-full overflow-hidden object-cover"
                       alt="preview"
                       unoptimized
                     />
+
                   </div>
 
                   <div className="w-2/4 h-full flex flex-col justify-center items-center">
