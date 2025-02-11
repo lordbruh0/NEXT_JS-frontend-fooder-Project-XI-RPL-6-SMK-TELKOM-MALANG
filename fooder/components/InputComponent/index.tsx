@@ -27,41 +27,48 @@ export const InputComponent = ({ value, onChange, type, className, id, required,
  }
 
 
- export const InputGroupComponent = ({
-    value,
-    onChange,
-    type,
-    className,
-    id,
-    required,
-    placeholder,
-    children,
-    label,
-    onKeyUp,
-    readOnly
-  }: Props) => {  
-    return (
+ export const InputGroupComponent = ({ value, onChange, type, className, id, required, placeholder, children, label, onKeyUp, readOnly }: Props) => {
+  return (
       <div className="w-full flex flex-col gap-1 my-2">
-        {label && (
-          <strong className="text-xs font-bold text-slate-500">
-            {label}
-            {required && <sup className="text-red-600">*</sup>}
-          </strong>
-        )}
-        <div className="w-full flex items-center gap-1 bg-white border border-slate-500 rounded-md">
-          {children && <div className="px-2">{children}</div>}
-          <input
-            type={type}
-            id={id}
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-            className={`text-sm w-full rounded-r-md p-2 bg-white focus:outline-none ${className}`}
-            required={required}
-            placeholder={placeholder}
-            readOnly={readOnly}
-            onKeyUp={onKeyUp}
-          />
+          <strong className="text-lg font-medium text-black">{label}</strong>
+           <div className="w-full flex items-center gap-1 bg-white border-[rgb(193,193,193)] rounded-sm border">
+               {children ? (
+                   <div className="px-2">
+                       {children}
+                   </div>
+               ) : null}
+               <input type={type} id={id} value={value} onChange={e => onChange(e.target.value)}
+                   className={`text-sm w-full rounded-r-md p-2 bg-white  focus:outline-none ${className}`}
+                   required={required ? required : false} placeholder={placeholder || ""}
+                   readOnly={readOnly ? readOnly : false} onKeyUp={e => {
+                       if (onKeyUp) onKeyUp(e)
+                   }} />
+           </div>
+       </div>
+
+
+   )
+}
+
+
+
+
+  export const TextGroupComponent = ({ value, onChange, className, id, required, placeholder, label }: Props) => {
+    return (
+        <div className="w-full flex flex-col gap-1 my-2">
+            <strong className="text-xs font-bold text-slate-500">
+                {label}
+                {required == true ? <sup className="text-red-600">*&#41;</sup> : <></>}
+            </strong>
+            <div className="w-full flex items-center gap-1 bg-white border-slate-500 rounded-md border">
+                <textarea id={id} value={value} cols={10} rows={3} onChange={e => onChange(e.target.value)}
+                    className={`text-sm w-full rounded-md p-2 bg-white  focus:outline-none ${className}`}
+                    required={required ? required : false} placeholder={placeholder || ""} />
+            </div>
         </div>
-      </div>
-    );
-  };
+ 
+ 
+    )
+ }
+ 
+ 

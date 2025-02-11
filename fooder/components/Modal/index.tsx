@@ -17,4 +17,4 @@ const Model = ({ children, isShow, onClose}: { children: ReactNode, isShow: bool
     )
 }
 
-export default Model
+export default Model 

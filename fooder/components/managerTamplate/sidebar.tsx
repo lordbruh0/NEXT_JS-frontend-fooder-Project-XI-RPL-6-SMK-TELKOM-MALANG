@@ -15,7 +15,7 @@ import MenuItem from "./manultem";
 import LogoPic from "../../public/image/Telkom Society 1.png";
 import ProfilePic from "../../public/image/profile.jpg";
 import path from "path";
-import { removeCookie } from "../../lib/ client-cookies";
+import { removeCookie } from "../../lib/client-cookies";
 import { useRouter } from "next/navigation";
 import SearchGlobal from "./searchGlobal";
 

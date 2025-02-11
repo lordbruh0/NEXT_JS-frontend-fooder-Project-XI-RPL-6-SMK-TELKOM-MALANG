@@ -7,6 +7,7 @@ import Image from "next/image";
 import Search from "./search";
 import React from "react";
 import StudentList from "@/components/data student";
+import AddMenu from "./addMenu";
 
 const getMenu = async (search: string): Promise<IMenu[]> => {
   try {
@@ -54,11 +55,15 @@ const MenuPage = async ({
         </p>
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
-        {/* <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
+        <div className="flex justify-end items-center mb-4">
+          {/* <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
             <Search url={`/manager/menu`} search={search} />
+          </div> */}
+          <div className="pt-4">
+            <AddMenu />
           </div>
-        </div> */}
+        </div>
+        
 
         <div className="pt-6">
           <table className="w-full border-collapse rounded-lg overflow-hidden">
