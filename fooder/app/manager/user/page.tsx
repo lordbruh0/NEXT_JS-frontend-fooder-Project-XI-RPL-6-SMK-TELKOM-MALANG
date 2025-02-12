@@ -6,6 +6,7 @@ import { AlertInfo } from "@/components/alert";
 import Image from "next/image";
 import Search from "./search";
 import React from "react";
+import AddUser from "./addUser";
 
 const getUser = async (search: string): Promise<IUser[]> => {
   try {
@@ -58,11 +59,14 @@ const UserPage = async ({
         </p>
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
-        {/* <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
-            <Search url={`/manager/user`} search={search} />
+        <div className="flex justify-end items-center mb-4">
+          <div className="pt-4">
+            <AddUser />
           </div>
-        </div> */}
+          {/* <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
+            <Search url={`/manager/user`} search={search} />
+          </div> */}
+        </div>
 
         <div className="pt-6">
           <table className="w-full border-collapse rounded-lg overflow-hidden">

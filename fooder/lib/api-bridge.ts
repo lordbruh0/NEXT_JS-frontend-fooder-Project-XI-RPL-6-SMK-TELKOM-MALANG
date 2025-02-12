@@ -2,6 +2,7 @@ import axios, { AxiosError } from "axios";
 import { BASE_API_URL } from "@/global";
 import { url } from "inspector";
 import { stat } from "fs";
+import { Fence } from "lucide-react";
 
 const axiosInstance = axios.create({
   baseURL: BASE_API_URL,
@@ -36,18 +37,19 @@ export const get = async (url: string, token: string) => {
     };
   }
 };
-
 export const post = async (url: string, data: string | FormData, token: string) => {
   try {
-    const typed: string = (typeof data == 'string') ?
-    "application/json" : "multipart/form-data"
     let headers: any = {
-      "Authorization": `Bearer ${token}` || '',
-      "Content-Type": typed
+      "Authorization": `Bearer ${token}` || ''
     }
-    let result = await axiosInstance.post(url, data, {
-      headers
-    })
+
+    // Hanya set Content-Type jika data adalah string (JSON)
+    if (typeof data === 'string') {
+      headers["Content-Type"] = "application/json"
+    }
+    // Jika FormData, biarkan browser mengatur Content-Type dan boundary
+
+    let result = await axiosInstance.post(url, data, { headers })
 
     return {
       status: true,
@@ -69,5 +71,3 @@ export const post = async (url: string, data: string | FormData, token: string) 
     }
   }
 };
-
-//npm install --save-dev @types/axios
