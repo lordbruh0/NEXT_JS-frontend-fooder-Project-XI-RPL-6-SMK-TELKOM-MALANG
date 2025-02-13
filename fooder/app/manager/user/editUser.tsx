@@ -27,7 +27,7 @@ const EditUser = ({ selectedUser }: { selectedUser: IUser }) => {
         setIsShow(true)
         if (formRef.current) formRef.current.reset()
     }
-    const handleSubmit = async (e: FormEvent)  => {
+    const handleSubmit = async (e: FormEvent) => {
         try {
             e.preventDefault()
             const url = `${BASE_API_URL}/user/${selectedUser.id}`
@@ -53,48 +53,61 @@ const EditUser = ({ selectedUser }: { selectedUser: IUser }) => {
     }
     return (
         <div>
-            <ToastContainer containerId={`toastUser`}/>
+            <ToastContainer containerId={`toastUser`} />
             <ButtonPrimary type="button" onClick={() => openModal()} className="bg-[#F45846] text-white text-base font-semibold py-3 px-8 rounded-md hover:shadow-lg">
                 Edit
             </ButtonPrimary>
             <Modal isShow={isShow} onClose={state => setIsShow(state)}>
                 <form onSubmit={handleSubmit} ref={formRef} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div className="w-full flex items-center">
-                        <div className="flex flex-col">
-                            <strong className="font-bold text-2xl text-[#F45846]">Edit user here</strong>
-                            <small className="text-base font-medium">Managers can update both cashier and manager roles on this page.</small>
-                        </div>
-                        <div className="ml-auto">
-                            <button type="button" onClick={() => setIsShow(false)}>
-                                <CircleX className="text-black w-6 h-6"/>
-                            </button>
+                    <div className="sticky top-0 bg-white px-5 pt-5 pb-3">
+                        <div className="w-full flex items-center">
+                            <div className="flex flex-col">
+                                <strong className="font-bold text-2xl text-[#F45846]">Edit user here</strong>
+                                <small className="text-base font-medium">Managers can update both cashier and manager roles on this page.</small>
+                            </div>
+                            <div className="ml-auto">
+                                <button type="button" onClick={() => setIsShow(false)}>
+                                    <CircleX className="text-black w-6 h-6" />
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div className="p-5">
-                        <InputGroupComponent id={`name`} type="text" value={user.name} onChange={val => setUser({ ...user, name: val})} required={true} label="Nama user" placeholder="Masukan nama user baru"/>
-                        <InputGroupComponent id={`email`} type="email" value={user.email} onChange={val => setUser({ ...user, email: val})} required={true} label="Email user" placeholder="Masukan email user baru"/>
+                        <InputGroupComponent id={`name`} type="text" value={user.name} onChange={val => setUser({ ...user, name: val })} required={true} label="Nama user" placeholder="Masukan nama user baru" />
+                        <InputGroupComponent id={`email`} type="email" value={user.email} onChange={val => setUser({ ...user, email: val })} required={true} label="Email user" placeholder="Masukan email user baru" />
                         <Select id={`role`} value={user.role} label="Role" required={true} onChange={val => setUser({ ...user, role: val })}>
                             <option value="">Select Category</option>
                             <option value="MANAGER">Manager</option>
                             <option value="CASHIER">Cashier</option>
                         </Select>
-                    <ButtonDanger type={"button"}>
-                        {isChangingPassword ? (
-                            <InputGroupComponent
-                                id={`password`}
-                                type="password"
-                                value={user.password}
-                                onChange={val => setUser({ ...user, password: val })}
-                                required={true}
-                                label="New Password"
-                                placeholder="Enter new password"
-                            />
-                        ) : (
-                            <ButtonDanger type="button" onClick={() => setIsChangingPassword(true)}>
-                                Change Default Password
-                            </ButtonDanger>
-                        )}
-                    </ButtonDanger>
+                        <div className="w-full">
+                            {isChangingPassword ? (
+                                <div className="w-full space-y-2">
+                                    <InputGroupComponent
+                                        id="password"
+                                        type="password"
+                                        value={user.password}
+                                        onChange={val => setUser({ ...user, password: val })}
+                                        required={true}
+                                        label="New Password"
+                                        placeholder="Enter new password"
+                                        className="w-full"
+                                    />
+                                    {/* Tombol Cancel */}
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsChangingPassword(false)}
+                                        className="text-red-500 font-bold hover:underline"
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            ) : (
+                                <ButtonDanger type="button" onClick={() => setIsChangingPassword(true)}>
+                                    <p className="font-extrabold">Ubah Password Default</p>
+                                </ButtonDanger>
+                            )}
+                        </div>
                     </div>
                     <div className="w-full p-5 flex rounded-b-2xl shadow">
                         <div className="flex ml-auto gap-2">
