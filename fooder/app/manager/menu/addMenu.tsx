@@ -63,16 +63,15 @@ const AddMenu = () => {
 
     return (
         <div>
-            <ToastContainer containerId={`toastMenu`} />
-            <ButtonSuccess type="button" onClick={() => openModal()}>
-                <div className="flex items-center gap-2">
-                    <CirclePlus />
-                    <h1 className="font-bold text-lg">Add Menu</h1>
-                </div>
+            <ToastContainer containerId="toastMenu" position="top-right" autoClose={3000} />
+            <ButtonSuccess type="button" onClick={openModal} className="flex items-center gap-2 px-7 py-2 rounded-lg shadow hover:shadow-lg">
+                <CirclePlus className="w-5 h-5" />
+                <span className="text-lg font-semibold">Add Menu</span>
             </ButtonSuccess>
             <Modal isShow={isShow} onClose={state => setIsShow(state)}>
                 <form onSubmit={handleSubmit}>
                     {/* modal header */}
+
                     <div className="sticky top-0 bg-white px-5 pt-5 pb-3">
                         <div className="w-full flex items-center">
                             <div className="flex flex-col">
@@ -104,12 +103,12 @@ const AddMenu = () => {
 
                         <InputGroupComponent id={`price`} type="number" value={menu.price.toString()}
                             onChange={val => setMenu({ ...menu, price: Number(val) })}
-                            required={true} label="Harga menu" placeholder="Masukan harga menu baru" />
+                            required={true} label="Harga menu" placeholder="Masukan harga menu" />
 
 
                         <InputGroupComponent id={`description`} type="text" value={menu.description}
                             onChange={val => setMenu({ ...menu, description: val })}
-                            required={true} label="Deskripsi menu" placeholder="Masukan deskripsi menu baru"/>
+                            required={true} label="Deskripsi menu" placeholder="Masukan deskripsi menu" />
 
                         <Select id={`category`} value={menu.category} label="Category"
                             required={true} onChange={val => setMenu({ ...menu, category: val })}>
@@ -121,23 +120,14 @@ const AddMenu = () => {
 
 
                         <FileInput acceptTypes={["application/pdf", "image/png", "image/jpeg", "image/jpg"]} id="profile_picture"
-                            label="Upload Picture (Max 2MB, PDF/JPG/JPEG/PNG)" onChange={f => setFile(f)} required={false} />
+                            label="Upload Picture (max 2 mb, pdf/jpg/jpeg/png)" onChange={f => setFile(f)} required={false} />
 
                     </div>
                     {/* end modal body */}
 
 
                     {/* modal footer */}
-                    <div className="w-full p-5 flex rounded-b-2xl shadow">
-                        <div className="flex ml-auto gap-2">
-                            <ButtonOutlineDanger type="button" onClick={() => setIsShow(false)}>
-                                Cancel
-                            </ButtonOutlineDanger>
-                            <ButtonPrimary type="submit">
-                                Save
-                            </ButtonPrimary>
-                        </div>
-                    </div>
+                  
                     {/* end modal footer */}
                 </form>
             </Modal>

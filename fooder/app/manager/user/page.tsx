@@ -7,6 +7,8 @@ import Image from "next/image";
 import Search from "./search";
 import React from "react";
 import AddUser from "./addUser";
+import { Edit } from "lucide-react";
+import EditUser from "./editUser";
 
 const getUser = async (search: string): Promise<IUser[]> => {
   try {
@@ -60,7 +62,7 @@ const UserPage = async ({
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
         <div className="flex justify-end items-center mb-4">
-          <div className="pt-4">
+          <div className="pt-9">
             <AddUser />
           </div>
           {/* <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
@@ -107,9 +109,7 @@ const UserPage = async ({
                           <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                             View
                           </button>
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            Edit
-                          </button>
+                          <EditUser selectedUser={data} />
                           <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                             Delete
                           </button>

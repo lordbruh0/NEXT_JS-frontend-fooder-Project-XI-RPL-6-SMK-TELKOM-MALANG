@@ -8,6 +8,7 @@ import Search from "./search";
 import React from "react";
 import StudentList from "@/components/data student";
 import AddMenu from "./addMenu";
+import EditMenu from "./editMenu";
 
 const getMenu = async (search: string): Promise<IMenu[]> => {
   try {
@@ -56,12 +57,12 @@ const MenuPage = async ({
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
         <div className="flex justify-end items-center mb-4">
-          {/* <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
-            <Search url={`/manager/menu`} search={search} />
-          </div> */}
-          <div className="pt-4">
-            <AddMenu />
+          <div className="pt-9">
+          <AddMenu />
           </div>
+          {/* <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
+            <Search url={`/manager/user`} search={search} />
+          </div> */}
         </div>
         
 
@@ -97,18 +98,16 @@ const MenuPage = async ({
                           unoptimized
                         />
                       </td>
-                      <td className="p-3 text-left py-6">{data.name}</td>
-                      <td className="p-3 text-left py-6">Rp{data.price}</td>
-                      <td className="p-3 text-left py-6">{data.description}</td>
-                      <td className="p-3 text-left py-6">{data.category}</td>
-                      <td className="p-3 text-left py-6 w-60">
+                      <td className="p-3 text-left">{data.name}</td>
+                      <td className="p-3 text-left">Rp{data.price}</td>
+                      <td className="p-3 text-left">{data.description}</td>
+                      <td className="p-3 text-left">{data.category}</td>
+                      <td className="p-3 text-left w-60">
                         <div className="flex gap-5">
                           <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                             View
                           </button>
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            Edit
-                          </button>
+                        <EditMenu selectedMenu={data}/>
                           <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                             Delete
                           </button>
