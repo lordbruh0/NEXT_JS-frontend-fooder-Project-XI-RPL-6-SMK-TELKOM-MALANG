@@ -9,6 +9,7 @@ import React from "react";
 import AddUser from "./addUser";
 import { Edit } from "lucide-react";
 import EditUser from "./editUser";
+import DeleteUser from "./deleteUser";
 
 const getUser = async (search: string): Promise<IUser[]> => {
   try {
@@ -110,9 +111,7 @@ const UserPage = async ({
                             View
                           </button>
                           <EditUser selectedUser={data} />
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            Delete
-                          </button>
+                          <DeleteUser selectedUser={data}/>
                         </div>
                       </td>
                     </tr>

@@ -60,6 +60,7 @@ const EditUser = ({ selectedUser }: { selectedUser: IUser }) => {
             <Modal isShow={isShow} onClose={state => setIsShow(state)}>
                 <form onSubmit={handleSubmit} ref={formRef} className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div className="sticky top-0 bg-white px-5 pt-5 pb-3">
+                        
                         <div className="w-full flex items-center">
                             <div className="flex flex-col">
                                 <strong className="font-bold text-2xl text-[#F45846]">Edit user here</strong>

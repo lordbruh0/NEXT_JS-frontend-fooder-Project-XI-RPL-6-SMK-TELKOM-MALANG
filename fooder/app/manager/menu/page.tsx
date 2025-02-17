@@ -9,6 +9,7 @@ import React from "react";
 import StudentList from "@/components/data student";
 import AddMenu from "./addMenu";
 import EditMenu from "./editMenu";
+import DeleteMenu from "./deleteMenu";
 
 const getMenu = async (search: string): Promise<IMenu[]> => {
   try {
@@ -58,13 +59,13 @@ const MenuPage = async ({
         <hr className="border=1 border-[#A8A8A8] w-full" />
         <div className="flex justify-end items-center mb-4">
           <div className="pt-9">
-          <AddMenu />
+            <AddMenu />
           </div>
           {/* <div className="flex items-center w-full max-w-md flex-grow pt-6 pb-2">
             <Search url={`/manager/user`} search={search} />
           </div> */}
         </div>
-        
+
 
         <div className="pt-6">
           <table className="w-full border-collapse rounded-lg overflow-hidden">
@@ -107,10 +108,8 @@ const MenuPage = async ({
                           <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
                             View
                           </button>
-                        <EditMenu selectedMenu={data}/>
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            Delete
-                          </button>
+                          <EditMenu selectedMenu={data} />
+                          <DeleteMenu selectedMenu={data} />
                         </div>
                       </td>
                     </tr>
