@@ -50,15 +50,13 @@ const MenuPage = async ({
       <div className="px-5  w-auto rounded-xl mb-12">
         <div className="flex justify-between items-center">
           <div>
-          <h1 className="text-2xl text-[#F45846] font-semibold px-2 pb-2">
-            Manage menu data
-          </h1>
-          <p className="text-sm text-secondary px-2 pb-2">
-            This page displays menu data, allowing menus to view details, search,
-            and manage menu items by adding, editing, or deleting them.
-          </p>
+            <h1 className="text-2xl text-[#F45846] font-semibold px-2 pb-2">
+              Selamat Datang User Cashier
+            </h1>
+            <p className="text-sm text-secondary px-2 pb-2">
+              Di page ini, user dengan role cashier hanya bisa melihat data user dengan role cashier saja.
+            </p>
           </div>
-            <AddMenu />
         </div>
         <hr className="border=1 border-[#A8A8A8] w-full" />
 
@@ -75,7 +73,6 @@ const MenuPage = async ({
                     <th className="p-3">Price</th>
                     <th className="p-3">Description</th>
                     <th className="p-3">Category</th>
-                    <th className="p-3">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -98,15 +95,6 @@ const MenuPage = async ({
                       <td className="p-3 text-left">Rp{data.price}</td>
                       <td className="p-3 text-left">{data.description}</td>
                       <td className="p-3 text-left">{data.category}</td>
-                      <td className="p-3 text-left w-60">
-                        <div className="flex gap-5">
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            View
-                          </button>
-                          <EditMenu selectedMenu={data} />
-                          <DeleteMenu selectedMenu={data} />
-                        </div>
-                      </td>
                     </tr>
                   ))}
                 </tbody>

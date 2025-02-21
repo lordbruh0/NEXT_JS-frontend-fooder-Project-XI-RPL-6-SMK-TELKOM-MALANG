@@ -111,7 +111,7 @@ export const  AlertWarning= ({ children, title }: Prop) => {
 
 
 
-export const  AlertDanger= ({ children, title }: Prop) => {
+export const  AlertDanger= (p0: string, p1: string, { children, title }: Prop) => {
   return (
     <div
       className="my-2 bg-red-200 rounded-md text-red-800 px-4 py-3 shadow-md border-l-4 border-red-800"

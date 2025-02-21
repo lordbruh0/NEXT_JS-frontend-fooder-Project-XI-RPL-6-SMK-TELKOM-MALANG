@@ -18,6 +18,7 @@ import path from "path";
 import { removeCookie } from "../../lib/client-cookies";
 import { useRouter } from "next/navigation";
 import SearchGlobal from "./searchGlobal";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 type MenuType = {
   id: string;
@@ -55,6 +56,7 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
       {/* header  */}
       <header className="flex justify-between items-center p-4   mb-0 bg-primary">
         <div className="flex gap-2">
+
           <button onClick={() => setIsShow(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,46 +79,23 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
         <div className="relative flex items-center justify-center">
           <div className="relative w-full">
             <SearchGlobal />
-            <div className="absolute inset-y-0 right-0 flex items-center px-5 bg-[#F45846] justify-center rounded-r-md">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-5 h-5 text-white"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.607-10.607 7.5 7.5 0 0 0 10.607 10.607z"
-                />
-              </svg>
-            </div>
           </div>
 
-          <button
-            onClick={toggleDropdown}
-            className="flex items-center space-x-2 text-black pl-10"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
+          <div className="pl-10">
+            <div className="flex items-center bg-[#F45846] gap-5 w-56 justify-center px-3 py-2 rounded-md"  onClick={toggleDropdown}>
+            <Image
+                src= "/image/profile.jpg"
+                alt="profile"
+                width={30}
+                height={5}
+                className="rounded-full overflow-hidden object-cover"
               />
-            </svg>
-            <button className="font-bold" onClick={handleLogout}>
-              Logout
-            </button>
-          </button>
+              <button className="text-base text-white font-bold">
+                Ryo Hariyono
+              </button>
+              {isDropdownOpen ? <ChevronUp width={16} height={16} className="text-white" /> : <ChevronDown width={16} height={16} className="text-white"/>}
+            </div>
+          </div>
 
           {isDropdownOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 top-full">
@@ -135,6 +114,7 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
               <a
                 href="#"
                 className="block px-4 py-2 text-sm text-[#F45846] hover:bg-gray-100"
+                onClick={handleLogout}
               >
                 Logout
               </a>
@@ -145,9 +125,8 @@ const Sidebar = ({ children, id, title, menuList }: ManagerProp) => {
       <div className="p-4">{children}</div>
       {/* sidebar section */}
       <div
-        className={`flex flex-col w-2/3 md:w-1/2 lg:w-1/4 h-full fixed top-0 right-full transition-transform z-50 bg-white border-r border-primary ${
-          isShow ? `translate-x-full` : ``
-        }`}
+        className={`flex flex-col w-2/3 md:w-1/2 lg:w-1/4 h-full fixed top-0 right-full transition-transform z-50 bg-white border-r border-primary ${isShow ? `translate-x-full` : ``
+          }`}
       >
         <div className="ml-auto p-2">
           <button onClick={() => setIsShow(false)}>

@@ -21,10 +21,8 @@ const Search = () => {
   const getSearchUrl = () => {
     if (pathname.includes("/menu")) return "/manager/menu";
     if (pathname.includes("/user")) return "/manager/user";
-    return (
-      alert(
-        <AlertDanger children={"Menu atau user tidak ditemukan"}/>
-      )
+    return alert(
+        
     );
   };
 

@@ -4,20 +4,18 @@ import { BASE_API_URL, BASE_IMAGE_PROFILE } from "@/global";
 import { get } from "@/lib/api-bridge";
 import { AlertInfo } from "@/components/alert";
 import Image from "next/image";
-import Search from "./search";
 import React from "react";
-import AddUser from "./addUser";
 import { Edit } from "lucide-react";
-import EditUser from "./editUser";
-import DeleteUser from "./deleteUser";
 
 const getUser = async (search: string): Promise<IUser[]> => {
   try {
     const TOKEN = await getCookies("token");
     const url = `${BASE_API_URL}/user?search=${search}`;
-    const { data } = await get(url, TOKEN);
+    const { data } = await get(url, await TOKEN);
     let result: IUser[] = [];
-    if (data?.status) result = [...data.data];
+    if (data?.status) {
+      result = data.data.filter((user: IUser) => user.role === "CASHIER");
+    }
     return result;
   } catch (error) {
     console.log(error);
@@ -56,14 +54,12 @@ const UserPage = async ({
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-2xl text-[#F45846] font-semibold px-2 pb-2">
-              Manage user data
+              Selamat Datang User Cashier
             </h1>
             <p className="text-sm text-secondary px-2 pb-2">
-              This page displays user data, allowing users to view details, search,
-              and manage user information by adding, editing, or deleting them.
+             Di page ini, user dengan role cashier hanya bisa melihat data user dengan role cashier saja.
             </p>
           </div>
-          <AddUser />
         </div>
 
         <hr className="border=1 border-[#A8A8A8] w-full" />
@@ -79,7 +75,6 @@ const UserPage = async ({
                     <th className="p-3">Name</th>
                     <th className="p-3">Email</th>
                     <th className="p-3">Role</th>
-                    <th className="p-3">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -101,15 +96,6 @@ const UserPage = async ({
                       <td className="p-3 text-left">{data.name}</td>
                       <td className="p-3 text-left">{data.email}</td>
                       <td className="p-3 text-left">{data.role}</td>
-                      <td className="p-3 text-left w-60">
-                        <div className="flex gap-5">
-                          <button className="bg-[#F45846] text-white text-base font-semibold py-2 px-6 rounded">
-                            View
-                          </button>
-                          <EditUser selectedUser={data} />
-                          <DeleteUser selectedUser={data} />
-                        </div>
-                      </td>
                     </tr>
                   ))}
                 </tbody>
